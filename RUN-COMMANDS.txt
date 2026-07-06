@@ -1,0 +1,56 @@
+========================================
+HOW TO RUN COMMANDS WITH PHP 8.3
+========================================
+
+PROBLEM: Your terminal uses PHP 8.2.12 by default, but this project needs PHP 8.3
+
+SOLUTION: Use the full path to PHP 8.3 when running commands
+
+========================================
+COMMAND EXAMPLES
+========================================
+
+Start the server:
+C:\laragon\bin\php\php-8.3.30-Win32-vs16-x64\php.exe artisan serve
+
+Run migrations:
+C:\laragon\bin\php\php-8.3.30-Win32-vs16-x64\php.exe artisan migrate
+
+Seed database:
+C:\laragon\bin\php\php-8.3.30-Win32-vs16-x64\php.exe artisan db:seed
+
+Clear cache:
+C:\laragon\bin\php\php-8.3.30-Win32-vs16-x64\php.exe artisan cache:clear
+
+Generate key:
+C:\laragon\bin\php\php-8.3.30-Win32-vs16-x64\php.exe artisan key:generate
+
+Check PHP version:
+C:\laragon\bin\php\php-8.3.30-Win32-vs16-x64\php.exe --version
+
+========================================
+EASIER METHOD (One-time setup per terminal)
+========================================
+
+Run this FIRST in your PowerShell terminal:
+$env:Path = "C:\laragon\bin\php\php-8.3.30-Win32-vs16-x64;$env:Path"
+
+Then you can use normal commands:
+php artisan serve
+php artisan migrate
+php --version
+
+NOTE: You need to run this every time you open a new terminal!
+
+========================================
+CURRENT STATUS
+========================================
+
+✅ Server is RUNNING!
+✅ Access at: http://127.0.0.1:8000
+
+Login credentials:
+- Email: admin@cras.com
+- Password: password
+
+========================================

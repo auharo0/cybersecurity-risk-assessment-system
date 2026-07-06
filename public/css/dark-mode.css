@@ -1,0 +1,219 @@
+/* Dark Mode Global Styles */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-gradient-start: #f5f7fa;
+    --bg-gradient-end: #e9ecef;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.08);
+    --border-color: #e2e8f0;
+    --input-bg: #ffffff;
+    --input-border: #e2e8f0;
+    --table-hover: #f1f5f9;
+    --navbar-bg: #1e293b;
+    --modal-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-gradient-start: #1e293b;
+    --bg-gradient-end: #0f172a;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --card-bg: #1e293b;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --border-color: #334155;
+    --input-bg: #0f172a;
+    --input-border: #334155;
+    --table-hover: #334155;
+    --navbar-bg: #020617;
+    --modal-bg: #1e293b;
+}
+
+/* Apply dark mode */
+[data-theme="dark"] body {
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .page-header {
+    background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%) !important;
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .asset-card,
+[data-theme="dark"] .session-card,
+[data-theme="dark"] .risk-item,
+[data-theme="dark"] .timeline-card,
+[data-theme="dark"] .search-card,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .stat-pill,
+[data-theme="dark"] .summary-card,
+[data-theme="dark"] .risk-stat-card,
+[data-theme="dark"] .empty-state,
+[data-theme="dark"] .filter-section {
+    background: var(--card-bg) !important;
+    box-shadow: 0 4px 12px var(--card-shadow) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .session-card.ongoing {
+    background: linear-gradient(135deg, #1e293b 0%, #374151 100%) !important;
+}
+
+[data-theme="dark"] .session-card.completed {
+    background: linear-gradient(135deg, #1e293b 0%, #1f2937 100%) !important;
+}
+
+[data-theme="dark"] .session-card.archived {
+    background: linear-gradient(135deg, #1e293b 0%, #18181b 100%) !important;
+}
+
+[data-theme="dark"] .risk-item.high {
+    background: linear-gradient(135deg, #1e293b 0%, #3f1f1f 100%) !important;
+}
+
+[data-theme="dark"] .risk-item.medium {
+    background: linear-gradient(135deg, #1e293b 0%, #3f2f1f 100%) !important;
+}
+
+[data-theme="dark"] .risk-item.low {
+    background: linear-gradient(135deg, #1e293b 0%, #1f3f2f 100%) !important;
+}
+
+[data-theme="dark"] .asset-name,
+[data-theme="dark"] .session-title,
+[data-theme="dark"] .risk-asset-name,
+[data-theme="dark"] .detail-value,
+[data-theme="dark"] .risk-detail-value,
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4, 
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .detail-label,
+[data-theme="dark"] .risk-detail-label,
+[data-theme="dark"] .stat-label,
+[data-theme="dark"] .summary-label,
+[data-theme="dark"] .risk-label,
+[data-theme="dark"] .log-time,
+[data-theme="dark"] .asset-meta-item {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .log-action,
+[data-theme="dark"] .log-user,
+[data-theme="dark"] .risk-threat-text {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .search-input,
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] input[type="password"],
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+    background: var(--input-bg) !important;
+    border-color: var(--input-border) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .search-input:focus {
+    background: var(--input-bg) !important;
+    border-color: #667eea !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .table {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .table tbody tr:hover {
+    background-color: var(--table-hover) !important;
+}
+
+[data-theme="dark"] .detail-item,
+[data-theme="dark"] .risk-detail-box,
+[data-theme="dark"] .asset-meta {
+    background: rgba(102, 126, 234, 0.08) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .log-item {
+    border-bottom-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .log-ip {
+    background: linear-gradient(135deg, #334155 0%, #475569 100%) !important;
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .risk-threat {
+    background: rgba(239, 68, 68, 0.1) !important;
+}
+
+[data-theme="dark"] .modal-content {
+    background: var(--modal-bg) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .modal-header {
+    border-bottom-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .input-group-text {
+    background: var(--input-bg) !important;
+    border-color: var(--input-border) !important;
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .alert-success {
+    background-color: rgba(16, 185, 129, 0.15) !important;
+    color: #34d399 !important;
+    border-left-color: #10b981 !important;
+}
+
+[data-theme="dark"] .alert-danger {
+    background-color: rgba(239, 68, 68, 0.15) !important;
+    color: #f87171 !important;
+    border-left-color: #ef4444 !important;
+}
+
+[data-theme="dark"] .empty-state i {
+    color: #475569 !important;
+}
+
+[data-theme="dark"] .navbar-dark {
+    background: var(--navbar-bg) !important;
+}
+
+/* Smooth transitions */
+body,
+.card,
+.form-control,
+.table,
+.modal-content {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark mode toggle button */
+#darkModeToggle {
+    transition: all 0.3s ease;
+}
+
+#darkModeToggle:hover {
+    transform: scale(1.1);
+    color: #fbbf24 !important;
+}
