@@ -32,7 +32,7 @@
                             @method('PUT')
 
                             <div class="row g-3 mb-3">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <label for="asset_id" class="form-label fw-bold">Target Asset Node</label>
                                     <select class="form-select @error('asset_id') is-invalid @enderror" id="asset_id" name="asset_id">
                                         @foreach($assets as $asset)
@@ -42,13 +42,6 @@
                                         @endforeach
                                     </select>
                                     @error('asset_id')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="cve_reference" class="form-label fw-bold">CVE Reference (Optional)</label>
-                                    <input type="text" class="form-control font-monospace @error('cve_reference') is-invalid @enderror" id="cve_reference" name="cve_reference" placeholder="e.g., CVE-2026-XXXX" value="{{ old('cve_reference', $riskAssessment->cve_reference) }}">
-                                    @error('cve_reference')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>

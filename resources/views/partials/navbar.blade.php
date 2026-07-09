@@ -1,3 +1,6 @@
+<!-- Security CSS - Disable Inspect -->
+<link rel="stylesheet" href="{{ asset('css/security.css') }}">
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
         <a class="navbar-brand fw-bold" href="{{ route('assessment_sessions.index') }}">
@@ -48,6 +51,14 @@
                         <i class="fas fa-shield-alt me-1"></i>All Risks
                     </a>
                 </li>
+                
+                @if(in_array(Auth::user()->role, ['it_security_analyst', 'administrator']))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('threat_library.index') }}">
+                        <i class="fas fa-book-medical me-1"></i>Threat Library
+                    </a>
+                </li>
+                @endif
             </ul>
             @endif
 
@@ -87,6 +98,9 @@
         </div>
     </div>
 </nav>
+
+<!-- Disable Inspect Element -->
+<script src="{{ asset('js/disable-inspect.js') }}"></script>
 
 <!-- Dark Mode Script -->
 <script>

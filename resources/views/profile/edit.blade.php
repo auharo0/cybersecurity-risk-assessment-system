@@ -18,6 +18,112 @@
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
         }
+        
+        /* Dark mode specific overrides for profile page */
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+        }
+        
+        [data-theme="dark"] .page-header {
+            background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%) !important;
+        }
+        
+        [data-theme="dark"] .card {
+            background: rgba(30, 41, 59, 0.9) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+        }
+        
+        [data-theme="dark"] .card-header {
+            background: rgba(15, 23, 42, 0.6) !important;
+            border-bottom: 2px solid rgba(148, 163, 184, 0.2) !important;
+        }
+        
+        [data-theme="dark"] .card-header h5 {
+            color: #f1f5f9 !important;
+        }
+        
+        [data-theme="dark"] .card-header h5 i {
+            color: #a5b4fc !important;
+        }
+        
+        [data-theme="dark"] .card-body p {
+            color: #cbd5e1 !important;
+        }
+        
+        [data-theme="dark"] .form-label {
+            color: #e2e8f0 !important;
+        }
+        
+        [data-theme="dark"] .form-control {
+            background: rgba(15, 23, 42, 0.7) !important;
+            border: 2px solid rgba(148, 163, 184, 0.3) !important;
+            color: #f1f5f9 !important;
+        }
+        
+        [data-theme="dark"] .form-control:focus {
+            background: rgba(15, 23, 42, 0.9) !important;
+            border-color: #667eea !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2) !important;
+        }
+        
+        [data-theme="dark"] .form-control::placeholder {
+            color: #94a3b8 !important;
+        }
+        
+        [data-theme="dark"] .danger-zone {
+            background: rgba(127, 29, 29, 0.2) !important;
+            border: 2px dashed rgba(239, 68, 68, 0.4) !important;
+        }
+        
+        [data-theme="dark"] .danger-zone h6 {
+            color: #fca5a5 !important;
+        }
+        
+        [data-theme="dark"] .danger-zone p {
+            color: #cbd5e1 !important;
+        }
+        
+        [data-theme="dark"] .modal-content {
+            background: rgba(30, 41, 59, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+        
+        [data-theme="dark"] .modal-header {
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2) !important;
+        }
+        
+        [data-theme="dark"] .modal-title {
+            color: #f1f5f9 !important;
+        }
+        
+        [data-theme="dark"] .modal-body {
+            color: #e2e8f0 !important;
+        }
+        
+        [data-theme="dark"] .modal-body p {
+            color: #cbd5e1 !important;
+        }
+        
+        [data-theme="dark"] .btn-close {
+            filter: invert(1);
+        }
+        
+        [data-theme="dark"] .alert-warning {
+            background: rgba(251, 191, 36, 0.15) !important;
+            color: #fbbf24 !important;
+            border-left: 4px solid #f59e0b !important;
+        }
+        
+        [data-theme="dark"] .invalid-feedback {
+            color: #fca5a5 !important;
+        }
+        
+        [data-theme="dark"] .form-control.is-invalid {
+            border-color: #ef4444 !important;
+        }
+        
         .page-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;

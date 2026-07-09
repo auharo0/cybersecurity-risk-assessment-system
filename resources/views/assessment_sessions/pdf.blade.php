@@ -77,7 +77,7 @@
             font-size: 10pt;
         }
         .data-table td {
-            padding: 8px 10px;
+            padding: 12px 10px;
             border-bottom: 1px solid #e2e8f0;
             font-size: 10pt;
             vertical-align: top;
@@ -157,10 +157,10 @@
     <table class="data-table">
         <thead>
             <tr>
-                <th style="width: 25%;">Target Asset</th>
-                <th style="width: 45%;">Threat / Vulnerability</th>
-                <th style="width: 15%; text-align: center;">Classification</th>
-                <th style="width: 15%; text-align: center;">Status</th>
+                <th style="width: 20%;">Asset</th>
+                <th style="width: 35%;">Threat Description</th>
+                <th style="width: 35%;">Vulnerability & Mitigation</th>
+                <th style="width: 10%; text-align: center;">Risk</th>
             </tr>
         </thead>
         <tbody>
@@ -168,26 +168,41 @@
                 <tr>
                     <td>
                         <strong>{{ $risk->asset->asset_name ?? 'N/A' }}</strong><br>
-                        <span style="font-size: 8pt; color: #64748b;">Type: {{ $risk->asset->asset_type ?? 'N/A' }}</span>
+                        <span style="font-size: 8pt; color: #64748b;">{{ $risk->asset->asset_type ?? 'N/A' }}</span><br>
+                        <span style="font-size: 8pt; color: #64748b;">Score: {{ $risk->risk_score }} (L:{{ $risk->likelihood }} × I:{{ $risk->impact }})</span><br>
+                        <span class="badge badge-status" style="margin-top: 3px;">{{ $risk->status }}</span>
                     </td>
                     <td>
-                        <strong style="color: #0f172a;">Threat:</strong> {{ $risk->threat_description }}<br>
-                        <strong style="color: #475569;">Vulnerability:</strong> {{ $risk->vulnerability_description }}
-                        @if($risk->cve_reference)
-                            <br><span style="font-size: 8pt; font-family: monospace; background: #f1f5f9; padding: 1px 3px;">{{ $risk->cve_reference }}</span>
-                        @endif
+                        <div style="margin-bottom: 8px;">
+                            <strong style="color: #dc2626; font-size: 9pt;">THREAT:</strong><br>
+                            <span style="font-size: 9pt;">{{ $risk->threat_description }}</span>
+                        </div>
                     </td>
-                    <td style="text-align: center;">
-                        @if($risk->risk_classification == 'High')
-                            <span class="badge badge-high">High ({{ $risk->risk_score }})</span>
-                        @elseif($risk->risk_classification == 'Medium')
-                            <span class="badge badge-medium">Medium ({{ $risk->risk_score }})</span>
+                    <td>
+                        <div style="margin-bottom: 8px;">
+                            <strong style="color: #d97706; font-size: 9pt;">VULNERABILITY:</strong><br>
+                            <span style="font-size: 9pt;">{{ $risk->vulnerability_description }}</span>
+                        </div>
+                        @if($risk->mitigation_plan)
+                        <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e2e8f0;">
+                            <strong style="color: #16a34a; font-size: 9pt;">MITIGATION PLAN:</strong><br>
+                            <span style="font-size: 9pt;">{{ $risk->mitigation_plan }}</span>
+                        </div>
                         @else
-                            <span class="badge badge-low">Low ({{ $risk->risk_score }})</span>
+                        <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e2e8f0;">
+                            <strong style="color: #94a3b8; font-size: 9pt;">MITIGATION PLAN:</strong><br>
+                            <span style="font-size: 9pt; color: #94a3b8; font-style: italic;">No mitigation plan provided.</span>
+                        </div>
                         @endif
                     </td>
-                    <td style="text-align: center;">
-                        <span class="badge badge-status">{{ $risk->status }}</span>
+                    <td style="text-align: center; vertical-align: middle;">
+                        @if($risk->risk_classification == 'High')
+                            <span class="badge badge-high">HIGH</span>
+                        @elseif($risk->risk_classification == 'Medium')
+                            <span class="badge badge-medium">MED</span>
+                        @else
+                            <span class="badge badge-low">LOW</span>
+                        @endif
                     </td>
                 </tr>
             @empty

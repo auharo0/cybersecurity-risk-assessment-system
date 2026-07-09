@@ -32,11 +32,6 @@
                         <h5 class="fw-bold text-warning">Vulnerability</h5>
                         <p class="fs-5">{{ $riskAssessment->vulnerability_description }}</p>
 
-                        @if($riskAssessment->cve_reference)
-                            <h5 class="fw-bold text-secondary">CVE Reference</h5>
-                            <p class="font-monospace bg-light p-2 rounded border">{{ $riskAssessment->cve_reference }}</p>
-                        @endif
-
                         <hr class="my-4">
 
                         <h5 class="fw-bold">Mitigation Plan</h5>
