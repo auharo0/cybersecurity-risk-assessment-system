@@ -310,20 +310,32 @@
                 @foreach($assets as $asset)
                     <div class="asset-card">
                         <!-- Asset Type Badge -->
-                        <span class="asset-badge badge-{{ strtolower($asset->asset_type) }}">
+                        <span class="asset-badge 
+                            @if(strtolower($asset->asset_type) == 'hardware') badge-hardware
+                            @elseif(strtolower($asset->asset_type) == 'software') badge-software
+                            @elseif(str_contains(strtolower($asset->asset_type), 'database')) badge-data
+                            @elseif(str_contains(strtolower($asset->asset_type), 'cloud')) badge-network
+                            @else badge-other
+                            @endif">
                             {{ ucfirst($asset->asset_type) }}
                         </span>
 
                         <!-- Asset Icon -->
-                        <div class="asset-icon-wrapper {{ strtolower($asset->asset_type) }}">
+                        <div class="asset-icon-wrapper 
+                            @if(strtolower($asset->asset_type) == 'hardware') hardware
+                            @elseif(strtolower($asset->asset_type) == 'software') software
+                            @elseif(str_contains(strtolower($asset->asset_type), 'database')) data
+                            @elseif(str_contains(strtolower($asset->asset_type), 'cloud')) network
+                            @else other
+                            @endif">
                             @if(strtolower($asset->asset_type) == 'hardware')
                                 <i class="fas fa-hdd"></i>
                             @elseif(strtolower($asset->asset_type) == 'software')
                                 <i class="fas fa-code"></i>
-                            @elseif(strtolower($asset->asset_type) == 'network')
-                                <i class="fas fa-network-wired"></i>
-                            @elseif(strtolower($asset->asset_type) == 'data')
+                            @elseif(str_contains(strtolower($asset->asset_type), 'database'))
                                 <i class="fas fa-database"></i>
+                            @elseif(str_contains(strtolower($asset->asset_type), 'cloud'))
+                                <i class="fas fa-cloud"></i>
                             @else
                                 <i class="fas fa-box"></i>
                             @endif

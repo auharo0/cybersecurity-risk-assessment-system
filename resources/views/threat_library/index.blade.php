@@ -272,7 +272,7 @@
                         <p class="mb-0 opacity-90">Import and manage threat information for assets</p>
                     </div>
                 </div>
-                @if(Auth::user()->role === 'it_security_analyst' || Auth::user()->role === 'administrator')
+                @if(Auth::user()->role === 'it_security_analyst')
                 <a href="{{ route('threat_library.create') }}" class="btn btn-import">
                     <i class="fas fa-file-import me-2"></i>Import Threat Info
                 </a>
@@ -360,7 +360,7 @@
                         <a href="{{ route('threat_library.show', $threat->threat_id) }}" class="btn btn-view">
                             <i class="fas fa-eye me-2"></i>View Details
                         </a>
-                        @if(Auth::user()->role === 'it_security_analyst' || Auth::user()->role === 'administrator')
+                        @if(Auth::user()->role === 'it_security_analyst')
                         <a href="{{ route('threat_library.edit', $threat->threat_id) }}" class="btn btn-edit-threat">
                             <i class="fas fa-edit me-2"></i>Edit
                         </a>
@@ -380,7 +380,7 @@
                 <i class="fas fa-book-open"></i>
                 <h5>No threat information imported yet</h5>
                 <p>Start by importing threat and vulnerability information for your assets</p>
-                @if(Auth::user()->role === 'it_security_analyst' || Auth::user()->role === 'administrator')
+                @if(Auth::user()->role === 'it_security_analyst')
                 <a href="{{ route('threat_library.create') }}" class="btn btn-primary mt-3">
                     <i class="fas fa-file-import me-2"></i>Import First Threat
                 </a>

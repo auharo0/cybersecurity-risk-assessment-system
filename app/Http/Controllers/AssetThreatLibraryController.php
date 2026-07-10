@@ -21,6 +21,11 @@ class AssetThreatLibraryController extends Controller
     // Show form to import new threat
     public function create()
     {
+        // Only IT Security Analysts can import threats
+        if (auth()->user()->role !== 'it_security_analyst') {
+            abort(403, 'Unauthorized action. Only IT Security Analysts can import threat information.');
+        }
+
         $assets = Asset::all();
 
         return view('threat_library.create', compact('assets'));
@@ -29,6 +34,11 @@ class AssetThreatLibraryController extends Controller
     // Store imported threat
     public function store(Request $request)
     {
+        // Only IT Security Analysts can import threats
+        if (auth()->user()->role !== 'it_security_analyst') {
+            abort(403, 'Unauthorized action. Only IT Security Analysts can import threat information.');
+        }
+
         $validated = $request->validate([
             'asset_id' => 'required|exists:assets,asset_id',
             'threat_name' => 'required|string|max:255',
@@ -64,6 +74,11 @@ class AssetThreatLibraryController extends Controller
     // Show edit form
     public function edit($id)
     {
+        // Only IT Security Analysts can edit threats
+        if (auth()->user()->role !== 'it_security_analyst') {
+            abort(403, 'Unauthorized action. Only IT Security Analysts can edit threat information.');
+        }
+
         $threat = AssetThreatLibrary::findOrFail($id);
         $assets = Asset::all();
 
@@ -73,6 +88,11 @@ class AssetThreatLibraryController extends Controller
     // Update threat information
     public function update(Request $request, $id)
     {
+        // Only IT Security Analysts can update threats
+        if (auth()->user()->role !== 'it_security_analyst') {
+            abort(403, 'Unauthorized action. Only IT Security Analysts can edit threat information.');
+        }
+
         $threat = AssetThreatLibrary::findOrFail($id);
 
         $validated = $request->validate([
@@ -100,6 +120,11 @@ class AssetThreatLibraryController extends Controller
     // Delete threat
     public function destroy($id)
     {
+        // Only IT Security Analysts can delete threats
+        if (auth()->user()->role !== 'it_security_analyst') {
+            abort(403, 'Unauthorized action. Only IT Security Analysts can delete threat information.');
+        }
+
         $threat = AssetThreatLibrary::findOrFail($id);
         $assetName = $threat->asset->asset_name;
 

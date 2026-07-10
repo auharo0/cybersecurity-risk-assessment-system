@@ -52,7 +52,7 @@
                     </a>
                 </li>
                 
-                @if(Auth::user()->role === 'it_security_analyst')
+                @if(in_array(Auth::user()->role, ['it_security_analyst', 'administrator']))
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('threat_library.index') }}">
                         <i class="fas fa-book-medical me-1"></i>Threat Library
